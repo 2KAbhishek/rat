@@ -1,4 +1,6 @@
 use clap::Parser;
+use std::fs::File;
+use std::io::{BufRead, BufReader};
 
 #[derive(Parser)]
 struct CommandArgs {
@@ -7,9 +9,10 @@ struct CommandArgs {
 
 fn main() {
     let args = CommandArgs::parse();
-    let content = std::fs::read_to_string(&args.path).expect("Could not read file!");
+    let file = File::open(args.path).unwrap();
+    let reader = BufReader::new(file);
 
-    for line in content.lines() {
-        println!("{}", line);
+    for line in reader.lines() {
+        println!("{}", line.unwrap());
     }
 }
