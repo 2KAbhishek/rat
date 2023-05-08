@@ -1,3 +1,5 @@
+// Common functions for rat
+
 use anyhow::{Context, Result};
 use std::fs::File;
 use std::io::{self, Write};
@@ -17,4 +19,23 @@ pub fn print_file(reader: std::io::BufReader<File>) -> Result<()> {
         writeln!(handle, "{}", line)?;
     }
     Ok(())
+}
+
+#[cfg(test)]
+#[test]
+fn read_file_test() {
+    let path = std::path::PathBuf::from("src/rat.rs");
+    let reader = read_file(&path).unwrap();
+    assert_eq!(
+        reader.lines().next().unwrap().unwrap(),
+        "// Common functions for rat"
+    );
+}
+
+#[test]
+fn print_file_test() {
+    let path = std::path::PathBuf::from("src/rat.rs");
+    let reader = read_file(&path).unwrap();
+    let out = print_file(reader).unwrap();
+    assert_eq!(out, ());
 }
