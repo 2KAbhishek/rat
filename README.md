@@ -20,68 +20,58 @@
 <a href="https://github.com/2KAbhishek/BareMinimum/pulse">
 <img alt="Last Updated" src="https://img.shields.io/github/last-commit/2kabhishek/BareMinimum?style=flat&color=e06c75&label="> </a>
 
-<h3>Short Sweet Headline 🎇🎉</h3>
-
-<figure>
-  <img src="images/screenshot.png" alt="BareMinimum in action">
-  <br/>
-  <figcaption>BareMinimum in action</figcaption>
-</figure>
+<h3>A rusty cat 🐭🦀</h3>
 
 </div>
 
-BareMinimum is a `<utility/tool>` that allows `<target_audience>` to `<action>`.
+rat / ratcat is a clone of cat written in rust
 
 ## ✨ Features
 
-- Supports foo
-- Can do bar
-- Works with bazz
+- Blazing fast performance
+- Great error reporting
+- Superior test coverage
+- Minimalistic and simple
 
 ## Setup
 
 ### ⚡ Requirements
 
-- foo >= bar
-- bazz
+- cargo / Rust
 
 ### 🚀 Installation
 
 ```bash
-git clone https://github.com/2kabhishek/BareMinimum
-cd BareMinimum
-<install_command>
+git clone https://github.com/2kabhishek/rat
+cd rat
+cargo install --path .
+# or
+cargo install ratcat
 ```
 
 ### 💻 Usage
 
 ```bash
-USAGE:
-    BareMinimum [FLAGS] [OPTIONS]
-Example:
-    BareMinimum
+Usage: ratcat <PATH>
+
+Arguments:
+  <PATH>
+
+Options:
+  -h, --help  Print help
 ```
-
-## What's Next
-
-Planning to add `<feature/module>`.
-
-### ✅ To-Do
-
-- [x] Setup repo
-- [ ] Think real hard
-- [ ] Start typing
 
 ##  Behind The Code
 
 ### 🌈 Inspiration
 
-BareMinimum was inspired by `<reason/idea>`.
+Wanted to explore me some rusty rust.
 
 ### 💡 Challenges/Learnings
 
-- The main challenges were `<issue/difficulty>`
-- I learned about `<learning/accomplishment>`
+- Rust tooling with neovim is awesome!
+- Error handling in rust can be as complicated or as simple as you want.
+- Unit tests are conventionally stored in the same file as src.
 
 ### 🧰 Tooling
 
@@ -91,7 +81,7 @@ BareMinimum was inspired by `<reason/idea>`.
 
 ### 🔍 More Info
 
-- [similar](https://github.com/2kabhishek/similar) — a related repo
+- [rgep](https://github.com/2kabhishek/rgep) — a rusty grep
 
 <hr>
 
