@@ -7,5 +7,9 @@ struct CommandArgs {
 
 fn main() {
     let args = CommandArgs::parse();
-    println!("Path: {:?}", args.path);
+    let content = std::fs::read_to_string(&args.path).expect("Could not read file!");
+
+    for line in content.lines() {
+        println!("{}", line);
+    }
 }
