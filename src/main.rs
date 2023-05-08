@@ -9,13 +9,9 @@ struct CommandArgs {
     path: std::path::PathBuf,
 }
 
-fn read_file(path: &std::path::PathBuf) -> Result<()> {
+fn read_file(path: &std::path::PathBuf) -> Result<std::io::BufReader<File>> {
     let file = File::open(path).with_context(|| format!("Failed to open file {:?}", path))?;
-    let reader = BufReader::new(file);
-
-    print_file(reader)?;
-
-    Ok(())
+    return Ok(BufReader::new(file));
 }
 
 fn print_file(reader: std::io::BufReader<File>) -> Result<()> {
@@ -26,14 +22,14 @@ fn print_file(reader: std::io::BufReader<File>) -> Result<()> {
         let line = line.with_context(|| format!("Failed to read line"))?;
         writeln!(handle, "{}", line)?;
     }
-
     Ok(())
 }
 
 fn main() -> Result<()> {
     let args = CommandArgs::parse();
 
-    read_file(&args.path).with_context(|| format!("Failed to read file {:?}", args.path))?;
-
+    let reader: BufReader<File> =
+        read_file(&args.path).with_context(|| format!("Failed to read file {:?}", args.path))?;
+    print_file(reader).with_context(|| format!("Failed to print file {:?}", args.path))?;
     Ok(())
 }
